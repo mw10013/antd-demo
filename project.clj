@@ -1,12 +1,17 @@
 (defproject antd-demo "0.1.0-SNAPSHOT"
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.9.908"]
+                 [cljsjs/react "16.2.0-3"]
+                 [cljsjs/react-dom "16.2.0-3"]
+                 [cljsjs/react-dom-server "16.2.0-3"]
                  [reagent "0.7.0"]
                  [re-frame "0.10.5"]
                  [secretary "1.2.3"]
                  [compojure "1.5.0"]
                  [yogthos/config "0.8"]
-                 [ring "1.4.0"]]
+                 [ring "1.4.0"]
+                 [cljsjs/antd "3.3.0-0"]
+                 [cljsjs/moment "2.17.1-1"]]
 
   :plugins [[lein-cljsbuild "1.1.5"]]
 

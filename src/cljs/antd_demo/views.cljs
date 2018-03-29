@@ -1,14 +1,16 @@
 (ns antd-demo.views
   (:require [re-frame.core :as re-frame]
             [antd-demo.subs :as subs]
-            ))
+            cljsjs.antd
+            cljsjs.moment))
 
-
-;; home
+(def antd js/antd)
+(def m js/moment)
 
 (defn home-panel []
   (let [name (re-frame/subscribe [::subs/name])]
     [:div (str "Hello from " @name ". This is the Home Page.")
+     [:> antd.DatePicker {:defaultValue (m)}]
      [:div [:a {:href "#/about"} "go to About Page"]]]))
 
 
