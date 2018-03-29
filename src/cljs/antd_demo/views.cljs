@@ -7,10 +7,17 @@
 (def antd js/antd)
 (def m js/moment)
 
+(defn date-picker-example []
+  [:div {:style {:margin 24}}
+   [:p {:style {:marginBottom 24}}
+    (str "Current antd version " antd.version) [:br]
+    "Example taken from https://codesandbox.io/s/jnw46698m3"]
+   [:> antd.DatePicker {:defaultValue (m)}]])
+
 (defn home-panel []
   (let [name (re-frame/subscribe [::subs/name])]
     [:div (str "Hello from " @name ". This is the Home Page.")
-     [:> antd.DatePicker {:defaultValue (m)}]
+     [date-picker-example]
      [:div [:a {:href "#/about"} "go to About Page"]]]))
 
 
