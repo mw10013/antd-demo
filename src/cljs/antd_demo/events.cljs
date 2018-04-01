@@ -7,6 +7,11 @@
  (fn  [_ _]
    db/default-db))
 
+(re-frame/reg-sub
+  ::active-panel
+  (fn [db _]
+    (:active-panel db)))
+
 (re-frame/reg-event-db
  ::set-active-panel
  (fn [db [_ active-panel]]
