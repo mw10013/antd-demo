@@ -18,14 +18,12 @@
 ;<img src="https://s1.gifyu.com/images/baby-boy-heart-background.jpg" alt="" width="615" height="615" data-load="full" style="">
 
 (defn about-panel []
-  [:div "This is the About Page."
-   [:div {:style {#_:background-color #_"lightblue"
-                  :background "lightblue url('http://imghst.co/95/tLLy~YWL8D.jpg') no-repeat right top"
-                  :padding    24
-                  :margin     12
-                  :width      615
-                  :height     615}} "Background Image Test"]
-   [:div [:a {:href "#/"} "go to Home Page"]]])
+  [:div {:style {#_:background-color #_"lightblue"
+                 :background "lightblue url('http://imghst.co/95/tLLy~YWL8D.jpg') no-repeat right top"
+                 :padding    24
+                 :margin     12
+                 :width      615
+                 :height     615}} "Background Image Test"])
 
 (defn active-panel []
   (let [active-panel @(re-frame/subscribe [::subs/active-panel])]
@@ -49,7 +47,10 @@
      [:> antd.Menu.SubMenu {:title "Admin"}
       [:> antd.Menu.Item "Users"]
       [:> antd.Menu.Item "Groups"]]
-     [:> antd.Menu.Item {:key :3} "Nav 3"]]]
+
+     [:> antd.Menu.Item {:key :3} "Nav 3"]
+     [:> antd.Menu.Item {:style {:float :right}} "Register"]
+     [:> antd.Menu.Item {:style {:float :right}} "Login"]]]
    [:> antd.Layout.Content {:style {:margin 0 :padding 12 :border "1px solid black"}}
     [active-panel]
     #_[:div {:style {:background "#fff" :padding 12 :min-height 280 :border "1px solid black"}} "Content"]]
