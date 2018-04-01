@@ -58,6 +58,35 @@
 (defn show-panel [panel-name]
   [panels panel-name])
 
+;.logo {
+;       width: 120px;
+;       height: 31px;
+;       background: rgba(255,255,255,.2);
+;       margin: 16px 24px 16px 0;
+;       float: left;
+;       }
+
+(defn layout []
+  [:> antd.Layout
+   [:> antd.Layout.Header
+    [:div {:style {:float :left :padding-right 20}}
+     [:a {:href "#" :style {:text-decoration :none}} "Antd Demo"]]
+    [:> antd.Menu {:theme :dark :mode :horizontal :selectable false
+                   :style {:line-height "64px"}}
+     [:> antd.Menu.Item {:key :1}
+      [:a {:href "#/about"}] "About"]
+     [:> antd.Menu.Item {:key :2}
+      [:> antd.Icon {:type :mail}]
+      "Nav 2"]
+     [:> antd.Menu.SubMenu {:title "Admin"}
+      [:> antd.Menu.Item "Users"]
+      [:> antd.Menu.Item "Groups"]]
+     [:> antd.Menu.Item {:key :3} "Nav 3"]]]
+   [:> antd.Layout.Content {:style {:margin 0 :padding 12 :border "1px solid black"}}
+    [:div {:style {:background "#fff" :padding 12 :min-height 280 :border "1px solid black"}} "Content"]]
+   [:> antd.Layout.Footer {:style {:text-align :center}} "Footer"]])
+
 (defn main-panel []
   (let [active-panel (re-frame/subscribe [::subs/active-panel])]
-    [show-panel @active-panel]))
+    #_[show-panel @active-panel]
+    [layout]))
